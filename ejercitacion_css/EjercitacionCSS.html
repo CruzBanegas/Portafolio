@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Perfil Profesional</title>
+
+  <!-- ============================================
+       EJERCITACION PARTE A — CSS PURO
+       NO MODIFICAR ESTE ARCHIVO HTML
+       Solo editar estilos.css
+       ============================================ -->
+
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header-principal">
+    <h1>Juan Perez</h1>
+    <p>Estudiante de Ingenieria en Sistemas — UTN FRC</p>
+  </header>
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main id="contenido">
+
+    <!-- Seccion: Sobre mi -->
+    <section id="sobre-mi">
+      <h2>Sobre mi</h2>
+      <p>Soy estudiante de 3er anio de Ingenieria en Sistemas en la UTN FRC. Me apasiona el desarrollo web y estoy aprendiendo HTML, CSS y JavaScript. Busco mi primera experiencia laboral en el area de desarrollo de software.</p>
+    </section>
+
+    <!-- Seccion: Habilidades -->
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+      <div class="skills-grid">
+
+        <article class="skill-card">
+          <h3>HTML5</h3>
+          <p>Estructura semantica, formularios, accesibilidad basica y buenas practicas del W3C.</p>
+        </article>
+
+        <article class="skill-card">
+          <h3>CSS3</h3>
+          <p>Selectores, box model, flexbox, media queries y diseno responsive mobile-first.</p>
+        </article>
+
+        <article class="skill-card">
+          <h3>JavaScript</h3>
+          <p>Variables, funciones, eventos del DOM, fetch API y programacion asincrona basica.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Seccion: Contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form id="form-contacto">
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+        </div>
+        <div class="campo">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com">
+        </div>
+        <div class="campo">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribi tu mensaje..."></textarea>
+        </div>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer-principal">
+    <p>UTN FRC — Desarrollo de Software — 2026</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+body {
+font-family: sans-serif;
+margin: 20px;
+}
+h1 {
+text-align: center;
+color: #333;
+}
+#contenedor-lista {
+width: 50%;
+margin: 20px auto;
+border: 1px solid #ccc;
+padding: 10px;
+}
+#lista-tareas {
+list-style-type: none;
+padding: 0;
+}
+#lista-tareas li {
+padding: 8px 0;
+border-bottom: 1px dashed #eee;
+}
+#lista-tareas li:last-child {
+border-bottom: none;
+}
+#boton-agregar-tarea {
+display: block;
+margin: 20px auto;
+padding: 10px 20px;
+background-color: #4CAF50;
+color: white;
+border: none;
+cursor: pointer;
+}
+#mensaje {
+text-align: center;
+margin-top: 10px;
+font-weight: bold;
+}

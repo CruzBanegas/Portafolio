@@ -1,0 +1,87 @@
+/* 1. Reset basico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Tipografia base */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
+    line-height: 1.6;
+}
+
+/* Contenedor principal (mejora visual tipo perfil) */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 3. Header con fondo */
+header {
+    background-color: #1e40af;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* 4. Encabezados */
+header h1 {
+    font-size: 2.5rem;
+}
+
+section h2 {
+    border-bottom: 2px solid #1e40af;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+/* 5. Cards */
+.skill-card {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 6. Flexbox */
+.skills-grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* mejora responsive */
+}
+
+.skill-card {
+    flex: 1;
+    min-width: 250px; /* evita que se rompa en pantallas chicas */
+}
+
+/* 7. Formulario */
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    display: block;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #1e40af;
+}
+
+/* 8. Footer */
+footer {
+    background-color: #1e293b;
+    color: #f8fafc;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}

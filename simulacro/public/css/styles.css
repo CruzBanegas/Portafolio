@@ -1,0 +1,105 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul-primario: #2196f3; 
+    --azul-secundario: #0067e6; 
+    --azul-pastel: #8e38c6; 
+    --azul-electrico: #e40488; 
+    --gris-claro: #f7f7f7;
+  }
+
+
+body {
+    font-family: "Raleway", sans-serif;
+  }
+
+
+.category-text {
+    background-color: var(--azul-primario);
+    color: var(--bs-white);
+}
+
+.category-id {
+    background-color: var(--gris-claro);
+}
+
+.navbar-title {
+    color: var(--bs-white);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo-in-nav {
+    color: var(--azul-primario);
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+a {
+    color: var(--bs-white);
+} */
+
+.starbucks-banner {
+    background-image: url('../img/banner.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250px;
+    border-top: 10px solid var(--verde-starbucks); 
+    border-bottom: 10px solid var(--verde-starbucks); 
+}
+
+.starbucks-banner .overlay {
+    background-color: #00704A; 
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.starbucks-banner h1,
+.starbucks-banner p {
+    color: var(--gris-claro);
+    text-shadow: none;
+}
+
+:root {
+    --verde-starbucks: #00704A;
+    --verde-claro: #D4E9E2;
+    --marron-cafe: #362415;
+    --gris-claro: #f7f7f7;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    background-color: var(--gris-claro);
+}
+
+.navbar-title,
+.logo-in-nav {
+    color: var(--verde-starbucks);
+}
+
+.table-success {
+    background-color: var(--verde-claro) !important;
+}
+
+.btn-primary {
+    background-color: var(--verde-starbucks);
+    border-color: var(--verde-starbucks);
+}
+
+.btn-primary:hover {
+    background-color: #005f3c;
+    border-color: #005f3c;
+}
+
+footer.bg-info {
+    background-color: var(--verde-starbucks) !important;
+}

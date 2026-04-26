@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Restaurante</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Encabezado de la página -->
+  <header class="site-header">
+    <div class="container">
+      <h1>Encuesta del Restaurante "Sabores del Mundo"</h1>
+      <br>
+      <!-- Link alternativo -->
+      <h3>Si no querés responder acá, podés visitar la página oficial >>>></h3>
+      <nav>
+        <ul>
+            <li><a href="index.html">Página Oficial del Restaurante</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <br><br><br>
+
+  <!-- Formulario -->
+  <form action="/submit" method="post">
+    <!-- Radio Buttons -->
+    <label>¿Cómo calificarías la comida que probaste?</label><br>
+    <input type="radio" id="excelente" name="calidad_comida" value="excelente">
+    <label for="excelente">Excelente</label>
+    <input type="radio" id="buena" name="calidad_comida" value="buena">
+    <label for="buena">Buena</label>
+    <input type="radio" id="regular" name="calidad_comida" value="regular">
+    <label for="regular">Regular</label>
+    <input type="radio" id="mala" name="calidad_comida" value="mala">
+    <label for="mala">Mala</label>
+    <br><br>
+
+    <!-- Sugerencia -->
+    <label for="sugerencia">Si tu respuesta no fue "Excelente", ¿qué sugerirías para mejorar?</label>
+    <textarea name="sugerencia" id="sugerencia" rows="4" cols="50"></textarea>
+    <br><br>
+
+    <!-- Select -->
+    <label for="plato_favorito">¿Cuál fue tu plato favorito?</label>
+    <select name="plato_favorito" id="plato_favorito">
+        <option value="seleccionar">Selecciona...</option>
+        <option value="pizza">Pizza artesanal</option>
+        <option value="pasta">Pasta casera</option>
+        <option value="asado">Asado argentino</option>
+        <option value="ensalada">Ensalada fresca</option>
+        <option value="otro">Otro</option>
+    </select>
+    <br><br><br>
+
+    <!-- Texto -->
+    <label>Si querés participar en un sorteo de una cena gratis, dejanos tus datos:</label><br>
+    <label for="nombre">Nombre completo: </label>
+    <input type="text" name="nombre" id="nombre">
+    <br>
+    <!-- Contraseña -->
+    <label for="clave">Clave secreta para validar tu participación (mínimo 3 caracteres): </label>
+    <input type="password" name="clave" id="clave" required minlength="3">
+    <br><br><br>
+
+    <!-- Botones -->
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Borrar">
+  </form>
+
+</body>
+</html>

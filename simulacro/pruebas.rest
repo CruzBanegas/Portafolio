@@ -1,0 +1,15 @@
+### Obtener primera página de locales
+GET http://localhost:3000/api/locales
+Accept: application/json
+
+### Obtener primera página de locales
+GET http://localhost:3000/api/locales?hemisferio=SO
+Accept: application/json
+
+### Obtener primera página de locales
+GET http://localhost:3000/api/locales?texto=Cordoba
+Accept: application/json
+
+### Obtener primera página de locales
+GET http://localhost:3000/api/locales?texto=Cordoba&hemisferio=SO
+Accept: application/json
