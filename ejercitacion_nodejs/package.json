@@ -1,0 +1,17 @@
+{
+  "name": "ejercitacion_nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://labsys.frc.utn.edu.ar/gitlab/desarrollo-de-software1/proyectos2026/3k3/401121/ejercitacion_nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
