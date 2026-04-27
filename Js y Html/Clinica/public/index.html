@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turnos de Clinica</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card glass">
+        <h1>Registro de turnos clinicos</h1>
+        <p>
+          Para sacar un turno, el paciente debe estar registrado con todos los
+          datos obligatorios.
+        </p>
+
+        <form id="appointmentForm">
+          <div class="grid">
+            <label>
+              Gmail
+              <input type="email" name="gmail" required />
+            </label>
+            <label>
+              Fecha de nacimiento
+              <input type="date" name="birthDate" required />
+            </label>
+            <label>
+              Nombre
+              <input type="text" name="firstName" required />
+            </label>
+            <label>
+              Apellido
+              <input type="text" name="lastName" required />
+            </label>
+            <label>
+              DNI
+              <input type="text" name="dni" required />
+            </label>
+            <label class="full-width">
+              Especialidad de la consulta
+              <select name="reason" id="reason" required>
+                <option value="">Seleccionar especialidad...</option>
+                <option value="Oncologia">Oncologia</option>
+                <option value="Traumatologia">Traumatologia</option>
+                <option value="Cardiologia">Cardiologia</option>
+                <option value="Pediatria">Pediatria</option>
+                <option value="Dermatologia">Dermatologia</option>
+                <option value="Neurologia">Neurologia</option>
+                <option value="Ginecologia">Ginecologia</option>
+                <option value="Clinica Medica">Clinica Medica</option>
+              </select>
+            </label>
+            <label>
+              Fecha del turno
+              <input type="date" name="appointmentDate" id="appointmentDate" required />
+            </label>
+            <div class="full-width">
+              <p class="time-title">Horario (8:00 a 18:00)</p>
+              <div id="timeSlots" class="time-slots"></div>
+              <input type="hidden" name="appointmentTime" id="appointmentTime" required />
+            </div>
+          </div>
+
+          <button type="submit">Registrar turno</button>
+        </form>
+
+        <p id="statusMessage" class="status"></p>
+      </section>
+
+      <section class="card">
+        <h2>Turnos registrados</h2>
+        <ul id="appointmentsList" class="appointments"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
