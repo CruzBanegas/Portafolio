@@ -28,21 +28,19 @@ def pais_origen(vec):
     return None
 
 def texto_desde_archivo(p1, vec):        # PUNTO 1
-    archivo = open(p1)
-    bel = archivo.readlines()
-    archivo.close()
+    with open(p1, encoding='utf-8') as archivo:
+        bel = archivo.readlines()
     l1 = False
     for linea in bel:
         if l1 is False:
             l1 = True
         else:
-            codigo = linea[0:10]
-            patente = linea[10:17]
-            t_vehiculo = linea[17]
-            f_pago = linea[18]
-            pais_cabina = linea[19]
-            km = linea[20:23]
-            pais: str = linea[23:]
+            codigo = linea[0:10].strip()
+            patente = linea[10:17].strip()
+            t_vehiculo = linea[17].strip()
+            f_pago = linea[18].strip()
+            pais_cabina = linea[19].strip()
+            km = linea[20:23].strip()
             vec.append(ticket.Ticket(codigo, patente, t_vehiculo, f_pago, pais_cabina, km))
 
     print('-' * 70)
@@ -110,8 +108,7 @@ def buscar_patente(vec, p, x):    #PUNTO 4
     for i in vec:
         if i.patente == p and int(i.pais_cabina) == x:
             return i
-        else:
-            return None
+    return None
 
 def obtener_pais():             #PUNTO 4
     while True:
@@ -123,7 +120,7 @@ def obtener_pais():             #PUNTO 4
         print('Error,seleccione un número entre 0 y 4.')
 
 def ejercicio4(vec):        #PUNTO 4
-    if vec[0] is None:
+    if not vec:
         print("-" * 70)
         print('No existen registros previos...')
         print("-" * 70)
@@ -151,26 +148,27 @@ def buscar_ticket(vec, c):
     return None
 
 def val_ticket(mensaje='Código del ticket: '):
-    n = input(mensaje)
-    if not str(n).isalpha():
-        return int(n)
-    else:
+    while True:
+        n = input(mensaje)
+        if str(n).isdigit():
+            return int(n)
         print('Error, ingrese un código válido.')
-        return val_ticket()
 
 def ejercicio5(vec):
     if not vec:
         print('No hay registros guardados.')
         return
 
-    codigo_a_buscar = int(val_ticket(mensaje='Código a buscar: '))
+    codigo_a_buscar = val_ticket(mensaje='Código a buscar: ')
+    ticket_encontrado = buscar_ticket(vec, codigo_a_buscar)
 
-    if codigo_a_buscar in vec:
-        vec[codigo_a_buscar].pago = 2 if vec[codigo_a_buscar].pago == 1 else 1
+    if ticket_encontrado is not None:
+        ticket_encontrado.f_pago = 2 if int(ticket_encontrado.f_pago) == 1 else 1
         print('Código encontrado - Cambios realizados')
-        print('Registro actualizado: ', vec[codigo_a_buscar])
-    else:
-        print('\n- Código no encontrado...\n')
+        print('Registro actualizado: ', ticket_encontrado)
+        return
+
+    print('\n- Código no encontrado...\n')
 
 
 
@@ -213,6 +211,9 @@ def pp(vec):
 
 
 def ejercico6(vec):
+    if not vec:
+        print('No hay registros guardados.')
+        return
     p_a_i_s = pp(vec)
     paises = ['Argentina', 'Bolivia', 'Brasil', 'Paraguay', 'Uruguay', 'Chile', 'Otro país']
     print('Cantidad de vehículos de cada país que pasaron por las cabinas:')
@@ -244,10 +245,12 @@ def calcular_importe_final(vec):
     return importe_final
 
 def ejercicio7(v):
+    if not v:
+        print('No hay registros guardados.')
+        return [0, 0, 0]
     acum = [0, 0, 0]
 
     for i in v:
-        pais_cabina = int(i.pais_cabina)
         tipo_vehiculo = int(i.tipo_vehiculo)
         acum[tipo_vehiculo] += calcular_importe_final(i)
 
@@ -266,6 +269,9 @@ def porcentaje(acumulador, contador):
     return None
 
 def ejercicio8(vec):
+    if not vec:
+        print('No hay registros guardados.')
+        return
     acumulador = ejercicio7(vec)
     acumulador2 = sum(acumulador)
 
@@ -286,26 +292,32 @@ def promedio(acumulador, contador):
     return promedio
 
 def ejercicio9(vec):
+    if not vec:
+        print('No hay registros guardados.')
+        return
     distancias = [int(vehiculo.km) for vehiculo in vec]
-    promedio = sum(distancias) / len(distancias)
-    vehiculos_mayor_promedio = sum(1 for distancia in distancias if distancia > promedio)
+    prom_distancia = sum(distancias) / len(distancias)
+    vehiculos_mayor_promedio = sum(1 for distancia in distancias if distancia > prom_distancia)
     print("-" * 70)
-    print('\nEl promeio de distancia recooridida fue: ', promedio, 'km')
+    print('\nEl promedio de distancia recorrida fue: ', prom_distancia, 'km')
     print("-" * 70)
-    print('El nuero de vehiculos que superaron la distancia promedio fue: ', vehiculos_mayor_promedio, '\n')
+    print('El numero de vehiculos que superaron la distancia promedio fue: ', vehiculos_mayor_promedio, '\n')
     print("-" * 70)
 
 
 #funcion principal
 def principal():
     # menu de opciones
-    arreglo = None
     vec = []
     opcion = None
     o1 = True
     while opcion != 0:
         mostrar_menu()
-        opcion = int(input("Ingrese una opcion: "))
+        op = input("Ingrese una opcion: ")
+        if not op.isdigit():
+            print("Error, vuelva a elegir una opcion: ")
+            continue
+        opcion = int(op)
         #evaluar opciones del usuario
         if opcion == 1:
 
@@ -319,14 +331,18 @@ def principal():
                     vec = []
                     texto_desde_archivo('peajes-tp3.txt', vec)
 
-                if conf not in ["a", "r"]:
+                if conf.lower() not in ["a", "r"]:
                     print("Debe seleccionar una de las dos opciones")
                     conf = input("seleccione A(aceptar), R(rechazar): ")
-                    texto_desde_archivo('peajes-tp3.txt', vec)
+                    if conf.lower() == "a":
+                        vec = []
+                        texto_desde_archivo('peajes-tp3.txt', vec)
                 o1 = False
 
         elif opcion == 2:
-            cargar_ticket_desde_teclado()
+            nuevo_ticket = cargar_ticket_desde_teclado()
+            vec.append(nuevo_ticket)
+            print("Ticket cargado correctamente.")
         elif opcion == 3:
             ejercicio3(vec)
         elif opcion == 4:
